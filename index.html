@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b20">
+  <meta name="description" content="Our Habits — tiny daily rituals for the two of us, with streaks, a weekly grid and a soft heatmap. Kept just for Mena.">
+  <title>Our Habits ✦ Love for Mena</title>
+  <link rel="canonical" href="https://menaammarpro.github.io/love-habits/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Our Habits — for Mena">
+  <meta property="og:title" content="Our Habits ✦ Love for Mena">
+  <meta property="og:description" content="Tiny daily rituals we keep together — streaks, a weekly grid and a gentle heatmap.">
+  <meta property="og:url" content="https://menaammarpro.github.io/love-habits/">
+  <meta property="og:image" content="https://menaammarpro.github.io/love-habits/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Our Habits — one small promise a day">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Habits ✦ Love for Mena">
+  <meta name="twitter:description" content="Tiny daily rituals we keep together, one small promise a day.">
+  <meta name="twitter:image" content="https://menaammarpro.github.io/love-habits/assets/og-image.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/theme-main.js" defer></script>
+  <script src="js/effects.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Our Habits">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">✦ Our Habits</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="#today">Today</a>
+      <a href="#add">New habit</a>
+      <a href="#how">How it works</a>
+      <div class="nav-more">
+        <button class="nav-more-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          More <span class="caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="nav-more-menu">
+          <a href="#details">Details</a>
+          <a href="https://menaammarpro.github.io/love-diary/">Our diary</a>
+          <a href="https://menaammarpro.github.io/love-levelup/">Our level</a>
+          <a href="https://menaammarpro.github.io/">All projects ↗</a>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero habits-hero">
+      <p class="eyebrow">ONE SMALL PROMISE A DAY</p>
+      <div class="moon" aria-hidden="true">✦</div>
+      <p class="small-caption">Small things, kept softly, day after day.</p>
+      <h1>Our <span>habits.</span></h1>
+      <p class="hero-description">
+        One small promise a day, kept gently. Water, a walk, a call before bed —
+        the little things that quietly hold us together. Tick a day, watch the
+        streak grow, and never mind the days you miss.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#today">See today <span>♥</span></a>
+        <a class="button button-ghost" href="#add">Start a new habit</a>
+      </div>
+      <p class="signature">Made with love, just for you <span>♥</span></p>
+    </section>
+
+    <section class="section" id="today">
+      <p class="eyebrow">TODAY</p>
+      <h2>What we're <span>keeping.</span></h2>
+      <p class="section-copy" id="today-line">A little quiet promise for each of us.</p>
+      <div class="habits-summary" id="summary-chips"></div>
+      <div class="habit-list" id="habit-list"></div>
+      <p class="section-note" id="list-note" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="add">
+      <p class="eyebrow">SOMETHING NEW</p>
+      <h2>Add a <span>habit.</span></h2>
+      <p class="section-copy">Give it a name, pick a little icon and a colour. You can always change your mind later.</p>
+      <div class="habit-form">
+        <label class="field">
+          <span>Name</span>
+          <input id="habit-name" type="text" maxlength="60" placeholder="e.g. Drink a glass of water" aria-label="Habit name">
+        </label>
+        <label class="field">
+          <span>Icon</span>
+          <input id="habit-icon" type="text" maxlength="4" placeholder="🌱" aria-label="Habit icon" value="🌱">
+        </label>
+        <label class="field">
+          <span>Colour</span>
+          <select id="habit-color" aria-label="Habit colour">
+            <option value="white">White</option>
+            <option value="pink" selected>Pink</option>
+            <option value="purple">Purple</option>
+            <option value="gold">Gold</option>
+            <option value="sky">Sky</option>
+            <option value="mint">Mint</option>
+          </select>
+        </label>
+        <button class="button button-primary" id="add-habit" type="button">Add it <span>♥</span></button>
+      </div>
+      <p class="section-note" id="add-note" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="how">
+      <p class="eyebrow">GENTLY, PLEASE</p>
+      <h2>How it <span>works.</span></h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <p class="feature-icon">☑</p>
+          <h3>Tick a day</h3>
+          <p>One tap marks a habit done today. Tap again to undo — no guilt either way.</p>
+        </article>
+        <article class="feature-card">
+          <p class="feature-icon">🔥</p>
+          <h3>Streaks</h3>
+          <p>Your current streak counts the days in a row; the best streak is the one you're proudest of.</p>
+        </article>
+        <article class="feature-card">
+          <p class="feature-icon">▦</p>
+          <h3>Week &amp; heatmap</h3>
+          <p>A seven-day grid shows the week at a glance; the heatmap holds your last thirty days.</p>
+        </article>
+        <article class="feature-card">
+          <p class="feature-icon">✎</p>
+          <h3>Little notes</h3>
+          <p>Leave a line to yourself on any habit — how it felt, what you noticed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="details">
+      <p class="eyebrow">JUST FOR US</p>
+      <h2>Details.</h2>
+      <div class="settings-actions">
+        <button class="button button-ghost" id="share-button" type="button">Share this page</button>
+        <button class="button button-ghost" id="seed-button" type="button">Suggest some habits</button>
+        <button class="button button-ghost" id="reset-habits" type="button">Clear everything</button>
+      </div>
+      <p class="settings-note" id="save-note" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with care <span>♥</span> for Mena</p>
+    <p class="footer-small">One small promise a day ✦</p>
+  </footer>
+</body>
+</html>
