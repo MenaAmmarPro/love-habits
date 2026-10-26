@@ -2,7 +2,7 @@
 
 /* love-habits — offline cache. Bump CACHE when assets change. */
 
-const CACHE = "mena-habits-v1";
+const CACHE = "mena-habits-v2";
 const ASSETS = [
   ".",
   "index.html",
